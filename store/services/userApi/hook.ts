@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
+import { type UseQueryOptions, useQuery } from "@tanstack/react-query";
 import { userApiService } from "./";
 
-const getUserProfileQueryOptions = {
+const getUserProfileQueryOptions: UseQueryOptions = {
   queryFn: userApiService.getProfile,
   queryKey: ['profile'],
   retry: false,

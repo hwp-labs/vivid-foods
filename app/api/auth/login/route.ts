@@ -1,29 +1,23 @@
-import axios, { AxiosError } from "axios";
-import { NextRequest, NextResponse } from "next/server";
-import { ResponseCookie } from "next/dist/compiled/@edge-runtime/cookies";
-import type { IApiResponse } from "@/store/services/baseApi/types";
+import axios, { type AxiosError } from "axios";
+import { type NextRequest, NextResponse } from "next/server";
+import { type ResponseCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import type { LoginRequest, LoginResponse } from "@/store/services/authApi/types";
 import { APP } from "@/constants/APP";
-
-type ResponseType = IApiResponse<LoginResponse>
 
 export async function POST(req: NextRequest) {
   try {
     const body: LoginRequest = await req.json();
 
-    const result = await axios.post<LoginResponse>(
+    const response = await axios.post<LoginResponse>(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login`,
       body,
       { headers: { "Content-Type": "application/json" } }
     );
 
-    const data = result.data;
+    const data = response.data;
+    console.log("🚀 ~ POST ~ data:", data)
 
-    const res = NextResponse.json<ResponseType>({
-      success: true,
-      error: data.message ?? 'OK',
-      data,
-    });
+    const result = NextResponse.json(data);
 
     const cookieOptions = {
       httpOnly: true,
@@ -33,7 +27,7 @@ export async function POST(req: NextRequest) {
     };
 
     if (data.access_token) {
-      res.cookies.set(
+      result.cookies.set(
         APP.cookieAccessTokenName,
         data.access_token,
         {
@@ -44,7 +38,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (data.refresh_token) {
-      res.cookies.set(
+      result.cookies.set(
         APP.cookieRefreshTokenName,
         data.refresh_token,
         {
@@ -54,17 +48,13 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    return res;
+    return result;
   } catch (err) {
-    console.log("🚀 ~ POST ~ err:", err)
     const axiosError = err as AxiosError;
-    const error = JSON.stringify(axiosError.response?.data);
+
+    const result = axiosError.response?.data ?? { message: axiosError.message };
     const status = axiosError.response?.status ?? 500;
 
-    return NextResponse.json<ResponseType>({
-      success: false,
-      data: null,
-      error,
-    }, { status });
+    return NextResponse.json(result, { status });
   }
 }

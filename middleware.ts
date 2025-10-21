@@ -20,6 +20,6 @@ export function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     // Match all pages except Next.js system and static assets
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|manifest.json|public).*)",
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|manifest.json|public|api/).*)",
   ],
 };

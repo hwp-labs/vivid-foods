@@ -1,8 +1,8 @@
 import { httpClient, httpServer } from "@/lib/axios/config";
-import { LoginRequest, RegisterBuyerRequest, RegisterVendorRequest } from "./types";
+import { LoginRequest, LoginResponse, RegisterBuyerRequest, RegisterVendorRequest } from "./types";
 
 export const authApiService = {
-  async login(req: LoginRequest) {
+  async login(req: LoginRequest): Promise<LoginResponse> {
     const res = await httpServer.post("/auth/login", req);
     return res.data;
   },

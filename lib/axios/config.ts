@@ -1,37 +1,22 @@
 import axios from "axios";
-
-const axiosOptions = {
-  withCredentials: true,
-  headers: {
-    "Content-Type": "application/json",
-  },
-}
+import { axiosUtils as _ } from "./utils";
 
 export const httpClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL ?? "/api",
-  ...axiosOptions
+  ..._.defaultOptions
 });
 
 export const httpServer = axios.create({
   baseURL: "/api",
-  ...axiosOptions
+  ..._.defaultOptions
 });
 
-// axios.interceptors.response.use(
-//   res => res,
-//   async (error) => {
-//     if (error.response?.status === 401) {
-//       // Try refreshing
-//       try {
-//         await axios.post("/api/auth/revalidate");
-//         // Retry original request
-//         return axios(error.config);
-//       } catch (refreshError) {
-//         // Refresh failed → logout
-//         await axios.post("/api/auth/logout");
-//         window.location.href = "/login";
-//       }
-//     }
-//     return Promise.reject(error);
-//   }
-// );
+httpServer.interceptors.response.use(
+  (response) => response,
+  _.transformInterceptorErrorResponse
+);
+
+httpClient.interceptors.response.use(
+  (response) => response,
+  _.transformInterceptorErrorResponse
+);

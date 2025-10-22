@@ -15,14 +15,13 @@ export async function POST(req: NextRequest) {
     );
 
     const data = response.data;
-    console.log("🚀 ~ POST ~ data:", data)
-
     const result = NextResponse.json(data);
 
     const cookieOptions = {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict", // lax
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      // domain: process.env.NODE_ENV === "production" ? ".bizengo.com" : "localhost",
       path: "/",
     };
 
@@ -51,7 +50,6 @@ export async function POST(req: NextRequest) {
     return result;
   } catch (err) {
     const axiosError = err as AxiosError;
-
     const result = axiosError.response?.data ?? { message: axiosError.message };
     const status = axiosError.response?.status ?? 500;
 

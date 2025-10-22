@@ -1,17 +1,18 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { APP } from "@/constants/APP";
 import { PATH, PUBLIC_PATH } from "@/constants/PATH";
+import { cookieUtil } from "@/utils/cookie.util";
 
 export function middleware(req: NextRequest) {
-  const token = req.cookies.get(APP.cookieAccessTokenName)?.value;
-  const { pathname } = req.nextUrl;
+  const token = cookieUtil.getTokenMiddleware(req);
+  const { pathname } = req.nextUrl; // /users/1
 
   if (PUBLIC_PATH.includes(pathname)) {
     return NextResponse.next();
   }
 
   if (!token) {
-    return NextResponse.redirect(new URL(PATH.login, req.url));
+    const path = PATH.dashboard === pathname ? PATH.login : PATH.login + '?redirect=' + pathname
+    return NextResponse.redirect(new URL(path, req.url));
   }
 
   return NextResponse.next();

@@ -1,10 +1,11 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
-import { AppQueryClientProvider } from "@/lib/tanstack/config";
+import { AppQueryClientProvider } from "@/lib/tanstack/provider";
+import { APP } from "@/constants/APP";
 
 export const metadata: Metadata = {
-  title: "VIVID Frozen Foods & Drinks",
+  title: APP.title,
 };
 
 export default function RootLayout({

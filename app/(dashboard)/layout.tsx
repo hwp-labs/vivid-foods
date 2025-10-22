@@ -1,3 +1,5 @@
+import { Header } from "@/components/organisms/header";
+
 export default function DashboardLayout({
   children,
 }: {
@@ -6,6 +8,7 @@ export default function DashboardLayout({
   return (
     <>
       <h1>DashboardLayout</h1>
+      <Header />
       {children}
     </>
   );

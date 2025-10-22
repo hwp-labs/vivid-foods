@@ -1,9 +1,24 @@
-import { httpClient } from "@/lib/axios/config";
+import { type UseQueryOptions, useQuery } from "@tanstack/react-query";
+import { userApiService } from "./service";
 
-export const userApiService = {
-  async getProfile() {
-    const res = await httpClient.get(`/user/profile`);
-    return res.data;
-  },
+const getUserProfileQueryOptions: UseQueryOptions = {
+  queryFn: userApiService.getProfile,
+  queryKey: ['profile'],
+  retry: false,
+  refetchOnMount: false,
+  refetchOnReconnect: false,
 }
 
+export function useUserApi() {
+  const getUserProfileQuery = useQuery(getUserProfileQueryOptions);
+
+  const getUserProfileQueryLazy = useQuery({
+    ...getUserProfileQueryOptions,
+    enabled: false,
+  });
+
+  return {
+    getUserProfileQuery,
+    getUserProfileQueryLazy,
+  }
+}

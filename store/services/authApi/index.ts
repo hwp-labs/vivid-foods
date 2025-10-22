@@ -1,26 +1,23 @@
-import { httpClient, httpServer } from "@/lib/axios/config";
-import { LoginRequest, LoginResponse, RegisterBuyerRequest, RegisterVendorRequest } from "./types";
+import { useMutation } from "@tanstack/react-query";
+import { authApiService } from "./service";
 
-export const authApiService = {
-  async login(req: LoginRequest): Promise<LoginResponse> {
-    const res = await httpServer.post("/auth/login", req);
-    return res.data;
-  },
+export function useAuthApi() {
+  const loginMutation = useMutation({
+    mutationFn: authApiService.login
+  });
 
-  async logout() {
-    const res = await httpServer.post("/auth/logout");
-    return res.data;
-  },
+  const registerBuyerMutation = useMutation({
+    mutationFn: authApiService.registerBuyer
+  });
 
-  async registerBuyer(req: RegisterBuyerRequest) {
-    const res = await httpClient.post(`/auth/signup/buyer`, req);
-    return res.data;
-  },
+  const registerVendorMutation = useMutation({
+    mutationFn: authApiService.registerVendor
+  });
 
-  async registerVendor(req: RegisterVendorRequest) {
-    const res = await httpClient.post(`/auth/signup/vendor`, req);
-    return res.data;
-  },
+  return {
+    loginMutation,
+    registerBuyerMutation,
+    registerVendorMutation,
+  }
 }
-
 

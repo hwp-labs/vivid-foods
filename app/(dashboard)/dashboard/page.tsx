@@ -1,31 +1,23 @@
 "use client";
 
-import { useAuthApi } from "@/store/services/authApi/hook";
-import { useUserApi } from "@/store/services/userApi/hook";
+import { useRouter } from "next/navigation";
+import { PATH } from "@/constants/PATH";
 
 export default function DashboardPage() {
-  const { logoutMutation } = useAuthApi();
-  const { getUserProfileQuery } = useUserApi();
+  const router = useRouter();
 
-  const handleLogout = () => {
-    logoutMutation
-      .mutateAsync()
-      .then((res) => {
-        console.log("🚀 ~ handleLogout ~ res:", res);
-      })
-      .catch((err) => {
-        console.log("🚀 ~ handleLogout ~ err:", err);
-      });
+  const gotoSettings = () => {
+    router.push(PATH.settings);
   };
 
   return (
     <main className="flex flex-col items-center justify-center gap-4 h-screen">
       <h1>DashboardPage</h1>
       <button
-        onClick={handleLogout}
-        className="bg-red-500 text-white px-4 py-2 rounded"
+        onClick={gotoSettings}
+        className="bg-green-500 text-white px-4 py-2 rounded"
       >
-        Sign out
+        Settings
       </button>
     </main>
   );

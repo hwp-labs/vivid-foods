@@ -1,12 +1,5 @@
 import { AxiosError, AxiosResponse } from "axios";
 
-const defaultOptions = {
-  withCredentials: true,
-  headers: {
-    "Content-Type": "application/json",
-  },
-}
-
 function transformInterceptorSuccessResponse(res: AxiosResponse) {
   res.data = {
     success: true,
@@ -19,7 +12,7 @@ function transformInterceptorSuccessResponse(res: AxiosResponse) {
 
 function transformInterceptorErrorResponse(err: AxiosError) {
   const error = err.response?.data || { message: err.message };
-  
+
   return Promise.reject(error);
 }
 
@@ -43,7 +36,6 @@ function transformInterceptorErrorResponse(err: AxiosError) {
 // );
 
 export const axiosUtils = {
-  defaultOptions,
   transformInterceptorSuccessResponse,
   transformInterceptorErrorResponse,
 }

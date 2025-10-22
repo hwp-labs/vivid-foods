@@ -1,7 +1,6 @@
 export const PATH = {
   home: '/',
   login: '/',
-  register: '/register',
   dashboard: '/dashboard',
   settings: '/settings',
 }

@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="">
+      <body className="p-4 flex flex-col gap-4">
         <h1>RootLayout</h1>
         <AppQueryClientProvider>{children}</AppQueryClientProvider>
       </body>

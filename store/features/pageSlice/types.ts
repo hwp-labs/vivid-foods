@@ -1,7 +1,7 @@
 import { RecordType } from "@/types/common.type";
 
 export interface IPageSliceState {
-  pathname: string;
+  path: string;
   id: number;
   uuid: string;
   q: string;
@@ -10,10 +10,9 @@ export interface IPageSliceState {
 
 export interface IPageSliceAction {
   resetPageSlice: () => void;
-  setPathname: (payload: string) => void;
+  setPath: (payload: string) => void;
   setId: (payload: number) => void;
   setUuid: (payload: string) => void;
   setQ: (payload: string) => void;
-  resetContext: (payload?: RecordType) => void;
   setContext: (payload: Partial<RecordType>) => void;
 }

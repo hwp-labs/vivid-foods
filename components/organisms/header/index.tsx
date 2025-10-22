@@ -8,14 +8,13 @@ export const Header: React.FC = () => {
   const { isGuarding, handleLogout } = useAuthGuard();
   const { getUserProfileQuery } = useUserApi();
   const user = useAppStore((s) => s.user);
+  const context = useAppStore((s) => s.context);
 
   return (
     <header className="flex items-center justify-between">
       <p>Hi, {getUserProfileQuery.isPending ? "..." : user.name}</p>
-      <button
-        onClick={handleLogout}
-        className="bg-red-500 text-white px-4 py-2 rounded"
-      >
+      <p>Cart: {context.cart as number ?? 0}</p>
+      <button onClick={handleLogout} className="btn-danger">
         Sign out {isGuarding ? "..." : ""}
       </button>
     </header>

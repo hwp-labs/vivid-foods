@@ -16,24 +16,24 @@ export const appSlice = persist<IAppSlice>(
     resetAppSlice: () => set({ ...initialState }),
 
     setUser: (payload: IUser) =>
-      set((state) => ({
-        user: state.user ? { ...state.user, ...payload } : ({ ...payload }),
+      set((s) => ({
+        user: s.user ? { ...s.user, ...payload } : ({ ...payload }),
       })),
 
     resetJobs: () => set({ jobs: {} }),
 
     addJob: (name: string, job: IJob) =>
-      set((state) => ({
-        jobs: state.jobs
-          ? { ...state.jobs, [name]: job }
+      set((s) => ({
+        jobs: s.jobs
+          ? { ...s.jobs, [name]: job }
           : { [name]: job },
       })),
 
     removeJob: (name: string) =>
-      set((state) => {
+      set((s) => {
         const filteredJobs: Record<string, IJob> = {}
 
-        Object.entries(state.jobs ?? {}).map(([key, value]) => {
+        Object.entries(s.jobs ?? {}).map(([key, value]) => {
           if (key !== name) {
             filteredJobs[key] = value;
           }
@@ -44,10 +44,10 @@ export const appSlice = persist<IAppSlice>(
   }),
   {
     name: APP.localStorageKey,
-    partialize: (state) =>
+    partialize: (s) =>
       ({
-        user: state.user,
-        jobs: state.jobs,
+        user: s.user,
+        jobs: s.jobs,
       }) as IAppSlice,
   }
 );

@@ -25,5 +25,5 @@ export const pageSlice: StateCreator<IPageSlice> = (set) => ({
  
   setQ: (payload: string) => set({ q: payload }),
 
-  setContext: (payload: Partial<RecordType>) => set((state) => ({ context: { ...state.context, ...payload } })),  
+  setContext: (payload: Partial<RecordType>) => set((s) => ({ context: { ...s.context, ...payload } })),  
 });

@@ -9,5 +9,8 @@ export type OptionType<T = RecordType> = {
   item?: T,
 }
 
-
 export type CollectionType<T = RecordType> = T[]
+
+export type DateType = Date | null
+
+export type DateStrType = Date | string | null

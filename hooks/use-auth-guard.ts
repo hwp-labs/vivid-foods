@@ -4,7 +4,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useAppStore } from "@/store";
 import { useAuthApi } from "@/store/services/authApi";
 import { LoginRequest } from "@/store/services/authApi/types";
-import { cookieUtil } from "@/utils/cookie.util";
+import { cookiesUtil } from "@/utils/cookies.util";
 import { PATH, PUBLIC_PATH } from "@/constants/PATH";
 
 export function useAuthGuard() {
@@ -24,7 +24,7 @@ export function useAuthGuard() {
     if (!PUBLIC_PATH.includes(pathname)) {
       setAuthenticating(true)
 
-      if (!cookieUtil.getTokenClient()) {
+      if (!cookiesUtil.getTokenClient()) {
         router.push(PATH.login);
       }
 
@@ -39,7 +39,7 @@ export function useAuthGuard() {
         alert(res.message);
 
         if (res.access_token) {
-          cookieUtil.setTokenClient({
+          cookiesUtil.setTokenClient({
             accessToken: res.access_token,
             refreshToken: res.refresh_token,
           });
@@ -65,7 +65,7 @@ export function useAuthGuard() {
     if (confirm("Are you sure?")) {
       setAuthenticating(true)
 
-      cookieUtil.removeTokenClient();
+      cookiesUtil.removeTokenClient();
 
       resetAppSlice();
 

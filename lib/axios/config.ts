@@ -1,5 +1,5 @@
 import axios from "axios";
-import { cookieUtil } from "@/utils/cookie.util";
+import { cookiesUtil } from "@/utils/cookies.util";
 import { axiosUtils as _ } from "./utils";
 
 const defaultOptions = {
@@ -21,7 +21,7 @@ export const httpServer = axios.create({
 });
 
 httpClient.interceptors.request.use(async (config) => {
-  const accessToken = await cookieUtil.getToken();
+  const accessToken = await cookiesUtil.getToken();
 
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;

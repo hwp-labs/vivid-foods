@@ -67,7 +67,7 @@ function removeTokenClient() {
   document.cookie = `${REFRESH_TOKEN_KEY}=; ${PATH_EXPIRE}`;
 }
 
-export const cookieUtil = {
+export const cookiesUtil = {
   getTokenMiddleware,
   getTokenServer,
   getTokenClient,

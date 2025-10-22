@@ -1,30 +1,6 @@
 import { APP } from "@/constants/APP";
 import { persist } from "zustand/middleware";
-
-interface IUser {
-  name?: string;
-  email?: string;
-  role?: string;
-  tenantName?: string;
-}
-
-interface IJob {
-  title: string;
-  description?: string;
-}
-
-interface IAppSliceState {
-  user: IUser;
-  jobs: Record<string, IJob>;
-}
-
-interface IAppSliceAction {
-  resetAppSlice: () => void;
-  setUser: (payload: IUser) => void;
-  resetJobs: () => void;
-  addJob: (name: string, job: IJob) => void;
-  removeJob: (name: string) => void;
-}
+import { IAppSliceAction, IAppSliceState, IJob, IUser } from "./types";
 
 export interface IAppSlice extends IAppSliceState, IAppSliceAction { }
 

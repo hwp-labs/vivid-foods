@@ -1,9 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { PATH, PUBLIC_PATH } from "@/constants/PATH";
-import { cookieUtil } from "@/utils/cookie.util";
+import { cookiesUtil } from "@/utils/cookies.util";
 
 export function middleware(req: NextRequest) {
-  const token = cookieUtil.getTokenMiddleware(req);
+  const token = cookiesUtil.getTokenMiddleware(req);
   const { pathname } = req.nextUrl; // /users/1
 
   if (PUBLIC_PATH.includes(pathname)) {

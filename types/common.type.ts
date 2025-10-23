@@ -1,4 +1,4 @@
-export type ListType<T = number> = T[]
+export type ListType<T extends string | number = string> = T[]
 
 export type RecordType<T extends string | number = string> = Record<T, unknown>
 

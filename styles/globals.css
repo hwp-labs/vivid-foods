@@ -132,6 +132,11 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  i,
+  address {
+    font-style: normal;
+  }
 }
 
 @layer utilities {

@@ -10,7 +10,7 @@ interface Props {
 
 export const Logo: React.FC<Props> = ({ size = "sm", href = "", withName }) => {
   const [borderRadius, containerSize, iconSize] =
-    size === "sm" ? [5, 32, 18]:[48, 48, 24];
+    size === "sm" ? [6, 32, 18]:[48, 48, 24];
 
   return (
     <Link href={href} className="flex items-center gap-2 font-medium">

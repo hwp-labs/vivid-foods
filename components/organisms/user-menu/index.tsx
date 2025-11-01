@@ -1,6 +1,16 @@
 "use client";
 
-import { ChevronDownIcon, LogOutIcon } from "lucide-react";
+import {
+  ChevronDownIcon,
+  GemIcon,
+  GiftIcon,
+  HeadsetIcon,
+  HeartHandshakeIcon,
+  HeartIcon,
+  LogOutIcon,
+  ShoppingBagIcon,
+  UserCogIcon,
+} from "lucide-react";
 //
 import {
   Avatar,
@@ -10,26 +20,11 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/shadcn/ui/dropdown-menu";
-
-/**
- my account
- order history
- notifications
- log out
-settings
-help center
- */
+import { COLOR } from "@/constants/COLOR";
 
 export const UserMenu: React.FC = () => {
   return (
@@ -45,52 +40,30 @@ export const UserMenu: React.FC = () => {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="start">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Profile
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Billing
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Settings
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Keyboard shortcuts
-            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Email</DropdownMenuItem>
-                <DropdownMenuItem>Message</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>More...</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuItem>
-            New Team
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>GitHub</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>API</DropdownMenuItem>
+        <DropdownMenuItem>
+          <UserCogIcon />
+          My Profile
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <ShoppingBagIcon />
+          My Orders
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <HeartIcon />
+          My Wishlist
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <GiftIcon />
+          My Rewards
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <LogOutIcon />
-          Sign out
+          <HeadsetIcon />
+          Help Centre
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <LogOutIcon stroke="red"/>
+          <p style={{ color: "red" }}>Sign out</p>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

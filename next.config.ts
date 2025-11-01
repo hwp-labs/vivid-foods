@@ -1,16 +1,8 @@
 import type { NextConfig } from "next";
+import { REDIRECT_PATHS } from "./constants/PATH";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  async redirects() {
-    return [
-      {
-        source: "/login",
-        destination: "/",
-        permanent: false,
-      },
-    ];
-  },
+  redirects: async () => REDIRECT_PATHS,
   reactStrictMode: true,
 };
 

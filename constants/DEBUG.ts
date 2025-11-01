@@ -11,4 +11,4 @@ export const DEBUG: Record<string, DebugType> = {
   auth: {
     formData: 1,
   }
-} as const
+}

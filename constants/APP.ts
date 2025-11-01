@@ -1,8 +1,20 @@
 export const APP = {
-  title: 'VIVID Frozen Foods & Drinks',
-  name: 'Bizengo', // citymart
-  slug: 'bizengo',
-  accessTokenKey: 'bizengo_access_token',
-  refreshTokenKey: 'bizengo_refresh_token',
-  localStorageKey: 'bizengo_local_storage'
-} as const
+  title: "Vivid Frozen Foods & Drinks",
+  name: "Vivid Foods",
+  slug: "vivid-foods",
+  theme: {
+    brand: "#7C3AED",
+    contrast: "#10B981",
+    accentPink: "#F472B6",
+    accentYellow: "#FBBF24",
+    successContainer: "#C8E6C9",
+    success: "#10b981",
+    dangerContainer: "#FCE7E6",
+    danger: "#f472b6",
+    warningContainer: "#FCE7E6",
+    warning: "#fbbf24",
+  },
+  accessTokenKey: "vivid_access_token",
+  refreshTokenKey: "vivid_refresh_token",
+  localStorageKey: "vivid_local_storage",
+};

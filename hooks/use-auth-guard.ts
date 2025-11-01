@@ -5,7 +5,7 @@ import { useAppStore } from "@/store";
 import { useAuthApi } from "@/store/services/authApi";
 import { LoginRequest } from "@/store/services/authApi/types";
 import { cookiesUtil } from "@/utils/cookies.util";
-import { PATH, PUBLIC_PATH } from "@/constants/PATH";
+import { PATH, PUBLIC_PATHS } from "@/constants/PATH";
 
 export function useAuthGuard() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export function useAuthGuard() {
   const isGuarding = authenticating || loginMutation.isPending;
 
   useEffect(() => {
-    if (!PUBLIC_PATH.includes(pathname)) {
+    if (!PUBLIC_PATHS.includes(pathname)) {
       setAuthenticating(true)
 
       if (!cookiesUtil.getTokenClient()) {

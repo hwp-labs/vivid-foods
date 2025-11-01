@@ -3,12 +3,12 @@ import { TriangleIcon } from "lucide-react";
 import { APP } from "@/constants/APP";
 
 interface Props {
-  href?: string;
   size?: "sm" | "lg";
+  href?: string;
   withName?: boolean;
 }
 
-export const Logo: React.FC<Props> = ({ href = "", size = "sm", withName }) => {
+export const Logo: React.FC<Props> = ({ size = "sm", href = "", withName }) => {
   const [borderRadius, containerSize, iconSize] =
     size === "sm" ? [5, 32, 18]:[48, 48, 24];
 

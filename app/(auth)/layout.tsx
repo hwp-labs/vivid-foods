@@ -1,4 +1,5 @@
 import { Logo } from "@/components/atoms/logo";
+import { PATH } from "@/constants/PATH";
 
 export default function AuthLayout({
   children,
@@ -8,8 +9,8 @@ export default function AuthLayout({
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col items-center justify-center gap-4">
-        <Logo size="lg"/>
-        <main className="w-full max-w-sm">{children}</main>
+        <Logo size="lg" href={PATH.login}/>
+        <main className="w-full max-w-md px-5">{children}</main>
       </div>
       <div className="bg-muted relative hidden lg:block">
         <img

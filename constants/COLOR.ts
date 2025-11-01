@@ -1,0 +1,12 @@
+export const COLOR = {
+  brand: "#7C3AED",
+  contrast: "#10B981",
+  accentPink: "#F472B6",
+  accentYellow: "#FBBF24",
+  successContainer: "#C8E6C9",
+  success: "#10b981",
+  dangerContainer: "#FCE7E6",
+  danger: "#f472b6",
+  warningContainer: "#FCE7E6",
+  warning: "#fbbf24",
+};

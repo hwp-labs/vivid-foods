@@ -132,14 +132,14 @@
   body {
     @apply bg-background text-foreground;
   }
-
-  address {
-    font-style: normal;
-  }
 }
 
 @layer utilities {
   .debug {
     @apply border-1 border-red-500;
+  }
+
+  .root-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }

@@ -9,6 +9,7 @@ import { GoBackButton } from "@/components/atoms/go-back-button";
 import { PATH } from "@/constants/PATH";
 //
 import { AuthFormContainer } from "@/components/species/auth/components/auth-form-container";
+import { Hyperlink } from "@/components/atoms/hyperlink";
 
 export const metadata = {
   title: "Verify email",
@@ -18,7 +19,10 @@ export default function VerifyEmailPage() {
   return (
     <>
       <GoBackButton />
-      <AuthFormContainer h1="Verify email" p="Fill in the form details below">
+      <AuthFormContainer
+        h1="OTP Verification Code"
+        p="Enter the verification code sent to your email address"
+      >
         <div className="flex justify-center">
           <InputOTP maxLength={6}>
             <InputOTPGroup>
@@ -35,6 +39,10 @@ export default function VerifyEmailPage() {
           </InputOTP>
         </div>
         <SubmitButton href={PATH.home}>Submit</SubmitButton>
+        <p className="text-center text-sm text-muted-foreground">
+          Didn't receive the verification code? It could take a bit of time,
+          request a new code in <Hyperlink>00:59</Hyperlink>
+        </p>
       </AuthFormContainer>
     </>
   );

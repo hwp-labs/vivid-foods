@@ -1,9 +1,11 @@
+import { Logo } from "@/components/atoms/logo";
+import { APP } from "@/constants/APP";
+
 export default function RootLoading() {
   return (
-    <div className="flex h-screen w-full items-center justify-center bg-yellow-500">
-      <div className="text-gray-700 font-medium text-lg">
-        Loading application...
-      </div>
-    </div>
+    <main className="flex flex-col h-screen w-full items-center justify-center gap-4">
+      <Logo size="lg" />
+      <h1 className="text-2xl font-bold">{APP.title}</h1>
+    </main>
   );
 }

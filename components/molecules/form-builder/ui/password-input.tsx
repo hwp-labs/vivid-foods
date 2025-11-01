@@ -24,7 +24,7 @@ export const PasswordInput: React.FC<Props> = ({
     <Field>
       {/* LABEL */}
       {label ? (
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <FieldLabel htmlFor={name}>{label}</FieldLabel>
           {labelRight}
         </div>

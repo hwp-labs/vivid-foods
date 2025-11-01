@@ -19,18 +19,17 @@ export default function LoginPage() {
       <TextInput
         name="email"
         label="Username"
-        placeholder="Enter email or telephone"
+        placeholder="Email or phone number"
         required
       />
       <PasswordInput
         name="password"
         label="Password"
-        placeholder="Enter password"
         labelRight={
           <Hyperlink href={PATH.forgotPassword}>Forgot password?</Hyperlink>
         }
       />
-      <SubmitButton>Log in</SubmitButton>
+      <SubmitButton href={PATH.home}>Log in</SubmitButton>
       <FieldSeparator>Don't have an account?</FieldSeparator>
       <RegisterButton />
     </AuthFormContainer>

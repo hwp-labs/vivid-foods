@@ -4,7 +4,7 @@ export const PATH = {
   login: "/login",
   register: "/register",
   forgotPassword: "/forgot-password",
-  resetPassword: "/reset-password",
+  createPassword: "/create-password",
   verifyEmail: "/verify-email",
 };
 

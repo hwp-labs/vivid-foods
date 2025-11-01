@@ -9,7 +9,7 @@ export default function AuthLayout({
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col items-center justify-center gap-4">
         <Logo size="lg"/>
-        <div className="w-full max-w-sm">{children}</div>
+        <main className="w-full max-w-sm">{children}</main>
       </div>
       <div className="bg-muted relative hidden lg:block">
         <img

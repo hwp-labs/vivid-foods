@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 
 import type { Metadata } from "next";
+// 
 import { AppQueryClientProvider } from "@/lib/tanstack/provider";
 import { APP } from "@/constants/APP";
 

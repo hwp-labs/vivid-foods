@@ -54,7 +54,7 @@ export function useAuthGuard() {
         }
 
         const redirect = searchParams.get("redirect");
-        router.push(redirect ?? PATH.dashboard);
+        router.push(redirect ?? PATH.home);
       })
       .catch((err) => {
         alert(err.message);

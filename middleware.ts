@@ -12,7 +12,7 @@ export function middleware(req: NextRequest) {
   }
 
   if (!token) {
-    const path = PATH.dashboard === pathname ? PATH.login : `${PATH.login}?redirect=${pathname}`
+    const path = PATH.home === pathname ? PATH.login : `${PATH.login}?redirect=${pathname}`
     return NextResponse.redirect(new URL(path, req.url));
   }
 

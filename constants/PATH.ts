@@ -1,15 +1,17 @@
 export const PATH = {
   home: "/",
+  // auth
   login: "/login",
-  dashboard: "/dashboard",
-  settings: "/settings",
+  register: "/register",
+  forgotPassword: "/forgot-password",
+  resetPassword: "/reset-password",
+  verifyEmail: "/verify-email",
 };
 
 export const ADMIN_PATH = {
   home: "/admin",
+  // auth
   login: "/admin",
-  dashboard: "/admin/dashboard",
-  settings: "/admin/settings",
 };
 
 export const PUBLIC_PATHS: string[] = [];

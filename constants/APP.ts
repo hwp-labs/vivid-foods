@@ -2,6 +2,7 @@ export const APP = {
   title: "Vivid Frozen Foods & Drinks",
   name: "Vivid Foods",
   slug: "vivid-foods",
+  copyright: "&copy; 2025 Vivid Foods by HWP Labs. All rights reserved.",
   theme: {
     brand: "#7C3AED",
     contrast: "#10B981",

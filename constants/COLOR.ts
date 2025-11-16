@@ -3,6 +3,8 @@ export const COLOR = {
   contrast: "#297937",
   accentGold: "#d2af6d",
   accentBlue: "#3a418f",
+  accentPink: "#F472B6",
+  accentYellow: "#FBBF24",
   // 
   successContainer: "#C8E6C9",
   success: "#10b981",

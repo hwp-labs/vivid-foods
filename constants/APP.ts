@@ -1,9 +1,9 @@
 export const APP = {
-  title: "Vivid Frozen Foods & Drinks",
-  name: "Vivid Foods",
-  slug: "vivid-foods",
-  copyright: "&copy; 2025 Vivid Foods by HWP Labs. All rights reserved.",
-  accessTokenKey: "vivid_access_token",
-  refreshTokenKey: "vivid_refresh_token",
-  localStorageKey: "vivid_local_storage",
+  name: "ZEntry",
+  slug: "zentry",
+  title: "Internal Database Web App - Corel Ministry Int'l",
+  copyright: "&copy; 2024 ZEntry by HWP Labs. All rights reserved.",
+  accessTokenKey: "zentry_access_token",
+  refreshTokenKey: "zentry_refresh_token",
+  localStorageKey: "zentry_local_storage",
 };
